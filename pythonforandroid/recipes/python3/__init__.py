@@ -1,6 +1,7 @@
 import glob
 import sh
 import subprocess
+version = '3.10.8'
 
 from os import environ, utime
 from os.path import dirname, exists, join
@@ -56,8 +57,8 @@ class Python3Recipe(TargetPythonRecipe):
     '''
 
     version = '3.10.8'
-    url = 'https://www.python.org/ftp/python/{version}/Python-{version}.tgz'
-    name = 'python3'
+    url = "https://www.python.org/ftp/python/3.10.8/Python-3.10.8.tgz"
+    name = 'python3.10'
 
     patches = [
         'patches/pyconfig_detection.patch',
@@ -71,7 +72,7 @@ class Python3Recipe(TargetPythonRecipe):
         ('patches/py3.8.1.patch', version_starts_with("3.8")),
         ('patches/py3.8.1.patch', version_starts_with("3.9")),
         ('patches/py3.8.1.patch', version_starts_with("3.10")),
-        ('patches/cpython-311-ctypes-find-library.patch', version_starts_with("3.11")),
+#        ('patches/cpython-311-ctypes-find-library.patch', version_starts_with("3.11")),
     ]
 
     if shutil.which('lld') is not None:
